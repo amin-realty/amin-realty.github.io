@@ -156,19 +156,43 @@
     .why-card p { color: #a7f3d0; font-size: 0.9rem; line-height: 1.7; }
     .why-num { font-size: 2rem; font-weight: 900; color: #6ee7b7; margin-bottom: 12px; }
 
-    /* ── AREAS ── */
-    .areas { background: #f9fafb; }
-    .areas-tags {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-    }
-    .tag {
-      background: #fff; border: 2px solid #6ee7b7;
-      color: #166534; font-weight: 700; font-size: 0.95rem;
-      padding: 10px 20px; border-radius: 999px;
-      transition: all .2s; cursor: default;
-    }
-    .tag:hover { background: #166534; color: #fff; border-color: #166534; }
 
+    /* AREA GRID */
+    .area-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .area-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .area-grid { grid-template-columns: 1fr; } }
+    .area-card {
+      background: #fff; border: 2px solid #d1fae5;
+      border-radius: 16px; padding: 24px;
+      transition: all .3s;
+    }
+    .area-card:hover { border-color: #166534; box-shadow: 0 6px 24px rgba(22,101,52,0.12); transform: translateY(-3px); }
+    .area-main { border-color: #166534; background: linear-gradient(135deg, #f0fdf4, #fff); }
+    .area-inquiry { border-color: #6ee7b7; background: #f9fafb; }
+    .area-icon { font-size: 2rem; margin-bottom: 10px; }
+    .area-card h3 { font-size: 1.05rem; font-weight: 800; color: #166534; margin-bottom: 12px; }
+    .area-tags-inner { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .area-tags-inner span { font-size: 0.88rem; color: #374151; padding: 4px 0; border-bottom: 1px solid #f3f4f6; }
+    .area-tags-inner span:last-child { border-bottom: none; }
+    .area-badge {
+      display: inline-block;
+      background: #dcfce7; color: #166534;
+      font-size: 0.78rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 999px;
+    }
+    .area-cta {
+      display: block; text-align: center;
+      background: #25D366; color: #fff;
+      padding: 10px 16px; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; margin-top: 8px;
+      transition: background .2s;
+    }
+    .area-cta:hover { background: #128C7E; }
     /* ── CTA SECTION ── */
     .cta-section {
       background: #fff; text-align: center;
@@ -634,20 +658,52 @@
 <section class="areas" id="areas">
   <div class="container">
     <h2 class="section-title">服務區域</h2>
-    <p class="section-sub">主力服務雲林縣全區，斗六市為重點深耕區域</p>
-    <div class="areas-tags">
-      <span class="tag">斗六市區找房</span>
-      <span class="tag">雲林斗六建地</span>
-      <span class="tag">斗六農地買賣</span>
-      <span class="tag">斗南鎮</span>
-      <span class="tag">虎尾鎮</span>
-      <span class="tag">西螺鎮</span>
-      <span class="tag">林內鄉</span>
-      <span class="tag">古坑鄉</span>
-      <span class="tag">雲林房仲推薦</span>
-      <span class="tag">斗六透天找房</span>
-      <span class="tag">斗六公寓買賣</span>
-      <span class="tag">雲林土地投資</span>
+    <p class="section-sub">以雲林斗六為根據地，全台物件皆可代尋・代售<br>農地・建地・透天・廠房・住宅，一通電話全搞定</p>
+    <div class="area-grid">
+
+      <div class="area-card area-main">
+        <div class="area-icon">⭐</div>
+        <h3>雲林縣・主力深耕</h3>
+        <div class="area-tags-inner">
+          <span>斗六市｜透天・農地・建地・廠房</span>
+          <span>古坑鄉｜景觀農地・農保地</span>
+          <span>斗南鎮｜農地・土地投資</span>
+          <span>二崙鄉｜新成屋・透天</span>
+          <span>虎尾鎮・西螺鎮・林內鄉</span>
+        </div>
+        <div class="area-badge">現有物件 10+ 筆</div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-icon">🏙️</div>
+        <h3>台南市・拓展中</h3>
+        <div class="area-tags-inner">
+          <span>新市區｜南科周邊住宅</span>
+          <span>3房格局・首購優選</span>
+        </div>
+        <div class="area-badge">現有物件 1 筆</div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-icon">🌆</div>
+        <h3>桃園市・北部服務</h3>
+        <div class="area-tags-inner">
+          <span>中壢區｜青埔重劃區</span>
+          <span>捷運宅・投資首選</span>
+        </div>
+        <div class="area-badge">現有物件 1 筆</div>
+      </div>
+
+      <div class="area-card area-inquiry">
+        <div class="area-icon">🔍</div>
+        <h3>其他地區・代尋代售</h3>
+        <div class="area-tags-inner">
+          <span>全台各縣市物件皆可洽詢</span>
+          <span>有需求就找阿敏，免費諮詢</span>
+        </div>
+        <a class="area-cta" href="https://wa.me/886988146299?text=我想詢問其他地區物件" target="_blank">💬 告訴我您的需求</a>
+      </div>
+
     </div>
   </div>
 </section>
