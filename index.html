@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阿敏房產通 | 雲林斗六房仲推薦・斗六找房・雲林斗六建地</title>
+  <meta name="description" content="阿敏房產通，雲林斗六在地房仲，專精斗六找房、雲林斗六建地、雲林斗六房仲推薦。首購族、換屋、投資皆可諮詢，立即 WhatsApp 免費提問。">
+  <meta name="keywords" content="雲林斗六房仲推薦,斗六找房,雲林斗六建地,斗六買房,雲林房仲,斗六房屋,阿敏房產通,雲林土地買賣,斗六房價,雲林買房">
+  <meta name="author" content="阿敏房產通">
+  <meta property="og:title" content="阿敏房產通 | 雲林斗六房仲推薦">
+  <meta property="og:description" content="在地深耕雲林斗六，專業房仲服務，斗六找房・建地・首購・換屋一站搞定。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <link rel="canonical" href="https://amin-realty.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans TC', sans-serif; color: #1a1a1a; background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { font-size: 1.2rem; font-weight: 900; color: #166534; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #374151; font-weight: 500; font-size: 0.95rem; transition: color .2s; }
+    .nav-links a:hover { color: #166534; }
+    .nav-cta {
+      background: #25D366; color: #fff; border: none;
+      padding: 10px 20px; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: #128C7E; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px 40px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #d1fae5; font-size: 0.85rem; font-weight: 500;
+      padding: 6px 16px; border-radius: 999px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.2; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #6ee7b7; }
+    .hero p {
+      font-size: 1.15rem; color: #a7f3d0;
+      line-height: 1.8; margin-bottom: 40px;
+    }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #25D366; color: #fff;
+      padding: 16px 32px; border-radius: 12px;
+      font-size: 1.05rem; font-weight: 700;
+      text-decoration: none; transition: all .2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: #128C7E; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.4);
+      color: #fff; padding: 16px 32px; border-radius: 12px;
+      font-size: 1.05rem; font-weight: 700;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+    /* ── STATS ── */
+    .stats {
+      background: #f0fdf4;
+      padding: 48px 24px;
+      display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center; padding: 24px 48px;
+      border-right: 1px solid #bbf7d0;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 2.5rem; font-weight: 900; color: #166534; }
+    .stat-label { font-size: 0.9rem; color: #4b5563; margin-top: 4px; }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 24px; }
+    .section-title {
+      text-align: center; font-size: 2rem; font-weight: 900;
+      color: #166534; margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center; color: #6b7280; font-size: 1rem;
+      margin-bottom: 48px; line-height: 1.7;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    .services { background: #fff; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px; padding: 32px 24px;
+      transition: all .3s;
+    }
+    .service-card:hover {
+      border-color: #6ee7b7;
+      box-shadow: 0 8px 32px rgba(22,101,52,0.1);
+      transform: translateY(-4px);
+    }
+    .service-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; color: #166534; margin-bottom: 8px; }
+    .service-card p { font-size: 0.9rem; color: #6b7280; line-height: 1.7; }
+
+    /* ── WHY ── */
+    .why { background: linear-gradient(135deg, #064e3b, #065f46); }
+    .why .section-title { color: #6ee7b7; }
+    .why .section-sub { color: #a7f3d0; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px; padding: 28px 24px;
+    }
+    .why-card h3 { color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .why-card p { color: #a7f3d0; font-size: 0.9rem; line-height: 1.7; }
+    .why-num { font-size: 2rem; font-weight: 900; color: #6ee7b7; margin-bottom: 12px; }
+
+    /* ── AREAS ── */
+    .areas { background: #f9fafb; }
+    .areas-tags {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    }
+    .tag {
+      background: #fff; border: 2px solid #6ee7b7;
+      color: #166534; font-weight: 700; font-size: 0.95rem;
+      padding: 10px 20px; border-radius: 999px;
+      transition: all .2s; cursor: default;
+    }
+    .tag:hover { background: #166534; color: #fff; border-color: #166534; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: #fff; text-align: center;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #064e3b, #047857);
+      border-radius: 24px; padding: 64px 40px;
+      max-width: 700px; margin: 0 auto;
+    }
+    .cta-box h2 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .cta-box p { color: #a7f3d0; font-size: 1.05rem; margin-bottom: 32px; line-height: 1.7; }
+    .cta-phone {
+      font-size: 2rem; font-weight: 900; color: #6ee7b7;
+      margin-bottom: 24px; display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111827; color: #9ca3af;
+      text-align: center; padding: 40px 24px;
+      font-size: 0.88rem; line-height: 2;
+    }
+    footer strong { color: #d1fae5; }
+    footer a { color: #6ee7b7; text-decoration: none; }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      background: #25D366; width: 60px; height: 60px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      text-decoration: none; transition: all .2s;
+      animation: pulse 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
+    .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 4px 32px rgba(37,211,102,0.8); }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .stat-item { padding: 20px 28px; border-right: none; border-bottom: 1px solid #bbf7d0; }
+      .stat-item:last-child { border-bottom: none; }
+      .cta-box { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🏠 阿敏房產通</div>
+  <ul class="nav-links">
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#why">為何選我</a></li>
+    <li><a href="#areas">服務區域</a></li>
+    <li><a href="#contact">立即諮詢</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">⭐ 雲林斗六在地房仲・值得信賴</div>
+    <h1>斗六找房，<br>就找 <span>阿敏房產通</span></h1>
+    <p>
+      雲林斗六房仲推薦首選｜住宅・建地・農地・商辦<br>
+      首購族・換屋・投資置產，全程免費諮詢
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/886988146299" target="_blank">
+        💬 WhatsApp 免費諮詢
+      </a>
+      <a class="btn-secondary" href="https://www.facebook.com/fantasichouse" target="_blank">
+        📘 粉絲專頁
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">274+</div>
+    <div class="stat-label">粉絲追蹤</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">0988</div>
+    <div class="stat-label">146 299 直撥</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">斗六</div>
+    <div class="stat-label">在地深耕</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">免費</div>
+    <div class="stat-label">看屋諮詢</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">服務項目</h2>
+    <p class="section-sub">
+      雲林斗六房仲推薦・專業服務全面覆蓋<br>
+      無論買屋、賣屋、租屋，阿敏都能幫您搞定
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏡</div>
+        <h3>斗六找房・住宅買賣</h3>
+        <p>透天厝、公寓、大樓，精選雲林斗六優質住宅，協助首購族與換屋族找到理想家園。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌾</div>
+        <h3>雲林斗六建地・農地</h3>
+        <p>雲林斗六建地、農地、工業用地買賣，熟悉在地地籍與法規，幫您把關每一筆土地交易。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>商辦・店面租售</h3>
+        <p>斗六市區精華店面、辦公室租售，掌握最新行情，快速媒合需求。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💰</div>
+        <h3>投資置產顧問</h3>
+        <p>雲林斗六房市分析、投報率試算、重劃區資訊，讓您投資不踩雷。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>首購補貼申辦協助</h3>
+        <p>青安貸款、土地增值稅減免、首購房屋稅優惠，一次整理，省下數十萬。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>委託銷售・快速成交</h3>
+        <p>精準定價、專業拍攝、全通路曝光，雲林斗六委售找阿敏，成交快、省麻煩。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="container">
+    <h2 class="section-title">為何選阿敏房產通</h2>
+    <p class="section-sub">雲林斗六在地房仲，值得信賴的五大理由</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>在地深耕，熟悉每條巷弄</h3>
+        <p>長期深耕雲林斗六，對每個社區、路段行情瞭若指掌，不讓您多花冤枉錢。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>即時 WhatsApp 回覆</h3>
+        <p>有問題直接傳訊，不用等排隊，阿敏親自回覆，快速解答您的疑惑。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>透明誠信，不藏資訊</h3>
+        <p>實價登錄行情、房屋優缺點全告知，讓您做出最有把握的決定。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>全程陪伴，售後不消失</h3>
+        <p>從看屋、議價、簽約到交屋，每個步驟都有阿敏在旁協助，安心無後顧之憂。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <h3>建地農地專業把關</h3>
+        <p>雲林斗六建地、農地交易需要特殊專業，阿敏熟悉地目變更、建蔽率等眉角。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <h3>免費諮詢，零壓力</h3>
+        <p>不管是隨口問問還是認真找房，阿敏都耐心回答，絕不強迫推銷。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <div class="container">
+    <h2 class="section-title">服務區域</h2>
+    <p class="section-sub">主力服務雲林縣全區，斗六市為重點深耕區域</p>
+    <div class="areas-tags">
+      <span class="tag">斗六市區找房</span>
+      <span class="tag">雲林斗六建地</span>
+      <span class="tag">斗六農地買賣</span>
+      <span class="tag">斗南鎮</span>
+      <span class="tag">虎尾鎮</span>
+      <span class="tag">西螺鎮</span>
+      <span class="tag">林內鄉</span>
+      <span class="tag">古坑鄉</span>
+      <span class="tag">雲林房仲推薦</span>
+      <span class="tag">斗六透天找房</span>
+      <span class="tag">斗六公寓買賣</span>
+      <span class="tag">雲林土地投資</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box">
+      <h2>立即免費諮詢</h2>
+      <p>
+        不管是斗六找房、雲林斗六建地，<br>
+        還是委託銷售，阿敏都能幫您！
+      </p>
+      <span class="cta-phone">📞 0988-146-299</span>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn-primary" href="https://wa.me/886988146299" target="_blank">
+          💬 WhatsApp 傳訊
+        </a>
+        <a class="btn-secondary" href="https://www.facebook.com/fantasichouse" target="_blank">
+          📘 Facebook 粉專
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>阿敏房產通</strong> — 雲林斗六房仲推薦</p>
+  <p>雲林縣斗六市｜📞 <a href="tel:0988146299">0988-146-299</a>｜
+     <a href="https://wa.me/886988146299" target="_blank">WhatsApp</a>｜
+     <a href="https://www.facebook.com/fantasichouse" target="_blank">Facebook</a>
+  </p>
+  <p style="margin-top:16px; font-size:0.8rem; color:#4b5563;">
+    © 2025 阿敏房產通・斗六找房・雲林斗六建地・雲林斗六房仲推薦
+  </p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/886988146299" target="_blank" title="WhatsApp 諮詢">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- SEO structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "阿敏房產通",
+  "description": "雲林斗六房仲推薦，專精斗六找房、雲林斗六建地、首購族服務",
+  "url": "https://amin-realty.github.io/",
+  "telephone": "+886-988-146-299",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "斗六市",
+    "addressRegion": "雲林縣",
+    "addressCountry": "TW"
+  },
+  "sameAs": [
+    "https://www.facebook.com/fantasichouse"
+  ],
+  "areaServed": {
+    "@type": "City",
+    "name": "斗六市"
+  },
+  "serviceType": ["房屋買賣", "建地仲介", "農地買賣", "商辦租售"]
+}
+</script>
+
+</body>
+</html>
