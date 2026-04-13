@@ -210,6 +210,66 @@
       50% { box-shadow: 0 4px 32px rgba(37,211,102,0.8); }
     }
 
+
+    /* PROPERTIES */
+    .properties { background: #f0fdf4; }
+    .prop-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .tab {
+      background: #fff; border: 2px solid #d1fae5;
+      color: #166534; padding: 8px 20px; border-radius: 999px;
+      font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all .2s;
+    }
+    .tab.active, .tab:hover { background: #166534; color: #fff; border-color: #166534; }
+    .props-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .prop-card {
+      background: #fff; border-radius: 16px;
+      overflow: hidden; border: 1px solid #e5e7eb;
+      transition: all .3s; position: relative;
+    }
+    .prop-card:hover { box-shadow: 0 8px 32px rgba(22,101,52,0.15); transform: translateY(-4px); }
+    .prop-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .prop-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: #166534; color: #fff;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 999px; z-index: 2;
+    }
+    .presale-badge { background: #7c3aed; }
+    .disc-badge { background: #dc2626; }
+    .prop-info { padding: 16px; }
+    .prop-type {
+      display: inline-block;
+      background: #d1fae5; color: #065f46;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 4px; margin-bottom: 8px;
+    }
+    .land-type { background: #fef3c7; color: #92400e; }
+    .prop-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .prop-info h3 a { color: #1a1a1a; text-decoration: none; }
+    .prop-info h3 a:hover { color: #166534; }
+    .prop-meta { font-size: 0.82rem; color: #6b7280; margin-bottom: 4px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .prop-price { font-size: 1.4rem; font-weight: 900; color: #dc2626; margin: 10px 0; }
+    .old-price { font-size: 0.85rem; color: #9ca3af; text-decoration: line-through; margin-right: 6px; }
+    .prop-cta {
+      display: block; text-align: center;
+      background: #25D366; color: #fff;
+      padding: 10px; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .prop-cta:hover { background: #128C7E; }
+    .btn-more {
+      display: inline-block;
+      border: 2px solid #166534; color: #166534;
+      padding: 12px 32px; border-radius: 999px;
+      font-weight: 700; text-decoration: none; transition: all .2s;
+    }
+    .btn-more:hover { background: #166534; color: #fff; }
+    .hidden { display: none; }
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .stat-item { padding: 20px 28px; border-right: none; border-bottom: 1px solid #bbf7d0; }
@@ -224,7 +284,7 @@
 <nav>
   <div class="nav-logo">🏠 阿敏房產通</div>
   <ul class="nav-links">
-    <li><a href="#services">服務項目</a></li>
+    <li><a href="#properties">最新物件</a></li><li><a href="#services">服務項目</a></li>
     <li><a href="#why">為何選我</a></li>
     <li><a href="#areas">服務區域</a></li>
     <li><a href="#contact">立即諮詢</a></li>
@@ -271,6 +331,165 @@
     <div class="stat-label">看屋諮詢</div>
   </div>
 </div>
+
+
+<!-- PROPERTIES -->
+<section class="properties" id="properties">
+  <div class="container">
+    <h2 class="section-title">最新物件</h2>
+    <p class="section-sub">雲林斗六在地優質房產・土地・透天・農地，歡迎諮詢</p>
+    <div class="prop-tabs">
+      <button class="tab active" onclick="filterProps(this,'all')">全部</button>
+      <button class="tab" onclick="filterProps(this,'land')">土地/農地</button>
+      <button class="tab" onclick="filterProps(this,'house')">透天/住宅</button>
+      <button class="tab" onclick="filterProps(this,'presale')">預售/新成屋</button>
+    </div>
+    <div class="props-grid" id="propsGrid">
+
+      <div class="prop-card" data-type="house">
+        <div class="prop-badge">精選</div>
+        <a href="https://www.chyi.com.tw/sell_item/2594-594037Y/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/594037Y_obj_256_17633590962181.jpg" alt="斗六公誠國小學區透天" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type">透天</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-594037Y/" target="_blank">斗六公誠國小學區透天</a></h3>
+          <div class="prop-meta"><span>📍 斗六市北平路</span><span>📐 25.3坪</span></div>
+          <div class="prop-meta"><span>🚪 7房3廳2衛</span></div>
+          <div class="prop-price">666萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：斗六公誠國小學區透天" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="presale">
+        <div class="prop-badge presale-badge">預售屋</div>
+        <a href="https://www.chyi.com.tw/sell_item/2594-571758Q/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/113/571758Q_obj_256_17225854310178.jpg" alt="斗六文化路雙效樓邸" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type">透天</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-571758Q/" target="_blank">斗六文化路雙效樓邸</a></h3>
+          <div class="prop-meta"><span>📍 斗六市文化路</span><span>📐 52.05坪</span></div>
+          <div class="prop-meta"><span>🚪 4房2廳4衛</span></div>
+          <div class="prop-price"><span class="old-price">原1,680萬</span>1,480萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：斗六文化路雙效樓邸" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <a href="https://www.chyi.com.tw/sell_item/2594-904399B/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/904399B_obj_256_17472133687128.jpg" alt="斗六久安優質農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-904399B/" target="_blank">斗六久安優質農地(二)</a></h3>
+          <div class="prop-meta"><span>📍 斗六市九老爺段</span><span>📐 1,242坪</span></div>
+          <div class="prop-price">858萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：斗六久安優質農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <div class="prop-badge disc-badge">降價</div>
+        <a href="https://www.chyi.com.tw/sell_item/2594-718547N/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/718547N_obj_256_17564498549025.jpg" alt="古坑田心美農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-718547N/" target="_blank">古坑田心美農地</a></h3>
+          <div class="prop-meta"><span>📍 古坑鄉田心段</span><span>📐 736坪</span></div>
+          <div class="prop-price"><span class="old-price">原480萬</span>450萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：古坑田心美農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <a href="https://www.chyi.com.tw/sell_item/2594-608749V/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/608749V_obj_256_17502351964703.jpg" alt="古坑棋山農保地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-608749V/" target="_blank">古坑棋山農保地</a></h3>
+          <div class="prop-meta"><span>📍 古坑鄉棋山段</span><span>📐 555坪</span></div>
+          <div class="prop-price">300萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：古坑棋山農保地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <a href="https://www.chyi.com.tw/sell_item/2594-439092L/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/439092L_obj_256_17543798538600.jpg" alt="古坑棋山正庄邊農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-439092L/" target="_blank">古坑棋山正庄邊農地</a></h3>
+          <div class="prop-meta"><span>📍 古坑鄉棋山段</span><span>📐 1,173坪</span></div>
+          <div class="prop-price">880萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：古坑棋山正庄邊農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <a href="https://www.chyi.com.tw/sell_item/2594-643799V/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/115/643799V_obj_256_17690480885612.jpg" alt="古坑華南景觀農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-643799V/" target="_blank">古坑華南景觀農地</a></h3>
+          <div class="prop-meta"><span>📍 古坑鄉大湖底段</span><span>📐 331坪</span></div>
+          <div class="prop-price">480萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：古坑華南景觀農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <a href="https://www.chyi.com.tw/sell_item/2594-948411J/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/115/948411J_obj_256_17685412408465.jpg" alt="斗南新庄農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-948411J/" target="_blank">斗南新庄農地</a></h3>
+          <div class="prop-meta"><span>📍 斗南鎮東明段</span><span>📐 1,284坪</span></div>
+          <div class="prop-price">1,188萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：斗南新庄農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="presale">
+        <div class="prop-badge">新成屋</div>
+        <a href="https://www.chyi.com.tw/sell_item/2594-421011N/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/421011N_obj_256_17512637370787.jpg" alt="二崙矽品家園" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type">透天</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-421011N/" target="_blank">二崙矽品家園</a></h3>
+          <div class="prop-meta"><span>📍 二崙鄉三和</span><span>📐 46.64坪</span></div>
+          <div class="prop-meta"><span>🚪 4房2廳4衛</span></div>
+          <div class="prop-price">1,098萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：二崙矽品家園" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+      <div class="prop-card" data-type="land">
+        <div class="prop-badge disc-badge">降價</div>
+        <a href="https://www.chyi.com.tw/sell_item/2594-328154D/" target="_blank">
+          <img src="https://app.chyi.com.tw/images/sell/114/328154D_obj_256_17434918967166.jpg" alt="斗南福智園區旁農地" loading="lazy">
+        </a>
+        <div class="prop-info">
+          <div class="prop-type land-type">農地</div>
+          <h3><a href="https://www.chyi.com.tw/sell_item/2594-328154D/" target="_blank">斗南福智園區旁農地</a></h3>
+          <div class="prop-meta"><span>📍 斗南鎮溫厝角段</span></div>
+          <div class="prop-price"><span class="old-price">原574萬</span>560萬</div>
+          <a class="prop-cta" href="https://wa.me/886988146299?text=我想詢問：斗南福智園區旁農地" target="_blank">💬 立即詢問</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.chyi.com.tw/store/055362808" target="_blank" class="btn-more">查看更多物件 →</a>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -444,5 +663,19 @@
 }
 </script>
 
+
+<script>
+function filterProps(btn, type) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prop-card').forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
