@@ -78,22 +78,22 @@
     /* ── QR CODE (右下角) ── */
     .qr-wrap {
       position: fixed; bottom: 80px; right: 24px; z-index: 200;
-      background: rgba(255,255,255,0.97);
+      background: linear-gradient(135deg, #064e3b, #065f46);
       border: 2px solid #6ee7b7;
-      border-radius: 12px; padding: 10px 16px; min-width: 240px;
-      box-shadow: 0 4px 20px rgba(6,78,59,0.3);
-      display: flex; align-items: center; gap: 10px;
+      border-radius: 16px; padding: 14px 20px;
+      box-shadow: 0 6px 28px rgba(6,78,59,0.45);
+      min-width: 220px;
     }
-    .qr-wrap img { width: 80px; height: 80px; display: block; flex-shrink: 0; }
     .qr-label {
-      font-size: 0.62rem; color: #166534; font-weight: 700;
-      margin-top: 4px; letter-spacing: 0.5px; text-align: center;
+      font-size: 0.85rem; color: #6ee7b7; font-weight: 800;
+      letter-spacing: 1px;
     }
     .qr-company {
-      font-size: 0.78rem; font-weight: 900; color: #064e3b; line-height: 1.5;
+      font-size: 1rem; font-weight: 900; color: #ffffff; line-height: 1.6;
+      letter-spacing: 0.5px;
     }
     .qr-address {
-      font-size: 0.67rem; color: #4b5563; line-height: 1.6;
+      font-size: 0.82rem; color: #a7f3d0; line-height: 1.6;
     }
     @media(max-width:768px){
       .agent-photo-wrap { display: none; }
@@ -369,12 +369,9 @@
 
 <!-- QR CODE 右下角 -->
 <div class="qr-wrap">
-  <div class="qr-info">
-    <div class="qr-company">紅火房屋仲介有限公司</div>
-    <div class="qr-address"><a href="https://maps.google.com/?q=雲林縣斗六市中正路312號" target="_blank" style="color:inherit;text-decoration:none;">雲林縣斗六市中正路312號</a></div>
-    <a href="https://amin-blog.vercel.app/blog" target="_blank" class="qr-label" style="display:block;margin-top:6px;color:#166534;font-weight:700;text-decoration:none;">▲ 房產知識部落格</a>
-    <a href="https://amin-blog.vercel.app/blog" target="_blank" style="display:block;font-size:0.6rem;color:#4b5563;text-decoration:none;margin-top:2px;">amin-blog.vercel.app/blog</a>
-  </div>
+  <div class="qr-company">🏠 紅火房屋仲介有限公司</div>
+  <a href="https://maps.google.com/?q=雲林縣斗六市中正路312號" target="_blank" class="qr-address" style="text-decoration:none;display:block;">📍 雲林縣斗六市中正路312號</a>
+  <a href="https://amin-blog.vercel.app/blog" target="_blank" style="display:block;margin-top:10px;background:#6ee7b7;color:#064e3b;font-weight:900;font-size:0.9rem;padding:8px 14px;border-radius:8px;text-decoration:none;text-align:center;letter-spacing:1px;">📚 房產知識部落格 →</a>
 </div>
 </div>
 
