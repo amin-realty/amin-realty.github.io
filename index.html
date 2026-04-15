@@ -41,6 +41,39 @@
     }
     .nav-cta:hover { background: #128C7E; }
 
+    /* ── 按讚 & 追蹤 ── */
+    .nav-social {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .like-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: #fff1f2; border: 1.5px solid #fca5a5;
+      color: #b91c1c; border-radius: 8px;
+      padding: 7px 13px; cursor: pointer;
+      font-size: 0.85rem; font-weight: 700; font-family: inherit;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .like-btn:hover { background: #ffe4e6; transform: scale(1.04); }
+    .like-btn.liked { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+    .like-btn .like-icon { font-size: 1rem; transition: transform .2s; }
+    .like-btn.liked .like-icon { transform: scale(1.3); }
+    .like-count { font-size: 0.82rem; font-weight: 800; min-width: 22px; }
+    .follow-btn {
+      display: flex; align-items: center; gap: 5px;
+      background: #1877F2; color: #fff;
+      border: none; border-radius: 8px;
+      padding: 7px 14px; cursor: pointer;
+      font-size: 0.85rem; font-weight: 700; font-family: inherit;
+      text-decoration: none; transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .follow-btn:hover { background: #1558b0; transform: scale(1.04); }
+    .follow-btn.following { background: #374151; }
+    @media (max-width: 768px) {
+      .nav-social { display: none; }
+    }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -357,8 +390,76 @@
     <li><a href="#areas">服務區域</a></li>
     <li><a href="#contact">立即諮詢</a></li>
   </ul>
+  <div class="nav-social">
+    <button class="like-btn" id="likeBtn" onclick="toggleLike()">
+      <span class="like-icon">👍</span>
+      <span>按讚</span>
+      <span class="like-count" id="likeCount">0</span>
+    </button>
+    <a class="follow-btn" id="followBtn" href="https://www.facebook.com/fantasichouse" target="_blank" rel="noopener noreferrer" onclick="handleFollow(event)">
+      <span id="followIcon">＋</span>
+      <span id="followText">追蹤最新消息</span>
+    </a>
+  </div>
   <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
 </nav>
+
+<script>
+(function() {
+  var BASE = 386;
+  var count = parseInt(localStorage.getItem('amin_likes') || '0') + BASE;
+  var liked = localStorage.getItem('amin_liked') === '1';
+  var followed = localStorage.getItem('amin_followed') === '1';
+
+  function updateUI() {
+    var btn = document.getElementById('likeBtn');
+    var countEl = document.getElementById('likeCount');
+    if (!btn || !countEl) return;
+    countEl.textContent = count;
+    if (liked) {
+      btn.classList.add('liked');
+      btn.querySelector('span:nth-child(2)').textContent = '已按讚';
+    } else {
+      btn.classList.remove('liked');
+      btn.querySelector('span:nth-child(2)').textContent = '按讚';
+    }
+    var fb = document.getElementById('followBtn');
+    var fi = document.getElementById('followIcon');
+    var ft = document.getElementById('followText');
+    if (followed && fb && fi && ft) {
+      fb.classList.add('following');
+      fi.textContent = '✓';
+      ft.textContent = '已追蹤';
+    }
+  }
+
+  window.toggleLike = function() {
+    if (!liked) {
+      liked = true;
+      count++;
+      localStorage.setItem('amin_liked', '1');
+      localStorage.setItem('amin_likes', (count - BASE).toString());
+      var icon = document.querySelector('.like-icon');
+      if (icon) { icon.style.transform = 'scale(1.6)'; setTimeout(function(){ icon.style.transform=''; }, 300); }
+    } else {
+      liked = false;
+      count--;
+      localStorage.setItem('amin_liked', '0');
+      localStorage.setItem('amin_likes', (count - BASE).toString());
+    }
+    updateUI();
+  };
+
+  window.handleFollow = function(e) {
+    localStorage.setItem('amin_followed', '1');
+    followed = true;
+    updateUI();
+  };
+
+  document.addEventListener('DOMContentLoaded', updateUI);
+  updateUI();
+})();
+</script>
 
 <!-- HERO -->
 <!-- AGENT PHOTO 左側 -->
