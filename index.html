@@ -41,38 +41,6 @@
     }
     .nav-cta:hover { background: #128C7E; }
 
-    /* ── 按讚 & 追蹤 ── */
-    .nav-social {
-      display: flex; align-items: center; gap: 8px;
-    }
-    .like-btn {
-      display: flex; align-items: center; gap: 6px;
-      background: #fff1f2; border: 1.5px solid #fca5a5;
-      color: #b91c1c; border-radius: 8px;
-      padding: 7px 13px; cursor: pointer;
-      font-size: 0.85rem; font-weight: 700; font-family: inherit;
-      transition: background .2s, transform .15s;
-      white-space: nowrap;
-    }
-    .like-btn:hover { background: #ffe4e6; transform: scale(1.04); }
-    .like-btn.liked { background: #b91c1c; color: #fff; border-color: #b91c1c; }
-    .like-btn .like-icon { font-size: 1rem; transition: transform .2s; }
-    .like-btn.liked .like-icon { transform: scale(1.3); }
-    .like-count { font-size: 0.82rem; font-weight: 800; min-width: 22px; }
-    .follow-btn {
-      display: flex; align-items: center; gap: 5px;
-      background: #1877F2; color: #fff;
-      border: none; border-radius: 8px;
-      padding: 7px 14px; cursor: pointer;
-      font-size: 0.85rem; font-weight: 700; font-family: inherit;
-      text-decoration: none; transition: background .2s, transform .15s;
-      white-space: nowrap;
-    }
-    .follow-btn:hover { background: #1558b0; transform: scale(1.04); }
-    .follow-btn.following { background: #374151; }
-    @media (max-width: 768px) {
-      .nav-social { display: none; }
-    }
 
     /* ── HERO ── */
     .hero {
@@ -390,19 +358,35 @@
     <li><a href="#areas">服務區域</a></li>
     <li><a href="#contact">立即諮詢</a></li>
   </ul>
-  <div class="nav-social">
-    <button class="like-btn" id="likeBtn" onclick="toggleLike()">
-      <span class="like-icon">👍</span>
-      <span>按讚</span>
-      <span class="like-count" id="likeCount">0</span>
-    </button>
-    <a class="follow-btn" id="followBtn" href="https://www.facebook.com/fantasichouse" target="_blank" rel="noopener noreferrer" onclick="handleFollow(event)">
-      <span id="followIcon">＋</span>
-      <span id="followText">追蹤最新消息</span>
-    </a>
-  </div>
   <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
 </nav>
+
+<!-- 浮動按讚追蹤面板 -->
+<div id="socialFloat" style="
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 999; display: flex; flex-direction: column; gap: 0;
+  border-radius: 12px 0 0 12px; overflow: hidden;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+">
+  <button id="likeBtn" onclick="toggleLike()" style="
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: #fff; border: none; border-bottom: 1px solid #f0e0e0;
+    padding: 14px 16px; cursor: pointer; font-family: inherit;
+    transition: background .2s; min-width: 72px;
+  ">
+    <span id="likeIcon" style="font-size: 1.5rem;">👍</span>
+    <span id="likeLabel" style="font-size: 0.72rem; font-weight: 700; color: #b91c1c;">按讚</span>
+    <span id="likeCount" style="font-size: 0.85rem; font-weight: 900; color: #b91c1c;">386</span>
+  </button>
+  <a id="followBtn" href="https://www.facebook.com/fantasichouse" target="_blank" rel="noopener noreferrer" onclick="handleFollow()" style="
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: #1877F2; padding: 14px 16px; cursor: pointer;
+    text-decoration: none; transition: background .2s;
+  ">
+    <span id="followIcon" style="font-size: 1.3rem; color:#fff;">＋</span>
+    <span id="followText" style="font-size: 0.72rem; font-weight: 700; color: #fff; text-align:center; line-height:1.3;">追蹤<br>最新消息</span>
+  </a>
+</div>
 
 <script>
 (function() {
@@ -412,24 +396,24 @@
   var followed = localStorage.getItem('amin_followed') === '1';
 
   function updateUI() {
-    var btn = document.getElementById('likeBtn');
     var countEl = document.getElementById('likeCount');
-    if (!btn || !countEl) return;
-    countEl.textContent = count;
+    var label = document.getElementById('likeLabel');
+    var btn = document.getElementById('likeBtn');
+    if (countEl) countEl.textContent = count;
     if (liked) {
-      btn.classList.add('liked');
-      btn.querySelector('span:nth-child(2)').textContent = '已按讚';
+      if (label) label.textContent = '已按讚';
+      if (btn) btn.style.background = '#fff1f2';
     } else {
-      btn.classList.remove('liked');
-      btn.querySelector('span:nth-child(2)').textContent = '按讚';
+      if (label) label.textContent = '按讚';
+      if (btn) btn.style.background = '#fff';
     }
-    var fb = document.getElementById('followBtn');
     var fi = document.getElementById('followIcon');
     var ft = document.getElementById('followText');
-    if (followed && fb && fi && ft) {
-      fb.classList.add('following');
-      fi.textContent = '✓';
-      ft.textContent = '已追蹤';
+    var fb = document.getElementById('followBtn');
+    if (followed) {
+      if (fi) fi.textContent = '✓';
+      if (ft) { ft.innerHTML = '已追蹤'; }
+      if (fb) fb.style.background = '#374151';
     }
   }
 
