@@ -361,39 +361,31 @@
   <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
 </nav>
 
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0">
-</script>
-
 <!-- 浮動 FB 按讚追蹤面板 -->
 <div id="socialFloat" style="
   position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
-  z-index: 999;
-  background: #fff;
-  border-radius: 16px;
+  z-index: 999; background: #fff; border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 16px 14px;
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  min-width: 100px;
+  padding: 14px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
 ">
-  <div style="font-size:0.72rem; font-weight:800; color:#1877F2; letter-spacing:1px; margin-bottom:2px;">敏姐粉專</div>
-  <!-- FB 官方按讚＋追蹤按鈕 -->
-  <div class="fb-like"
-    data-href="https://www.facebook.com/fantasichouse"
-    data-width=""
-    data-layout="box_count"
-    data-action="like"
-    data-size="large"
-    data-share="false">
-  </div>
-  <!-- 追蹤按鈕 -->
-  <div class="fb-follow"
-    data-href="https://www.facebook.com/fantasichouse"
-    data-layout="box_count"
-    data-size="large">
-  </div>
+  <div style="font-size:0.68rem; font-weight:800; color:#1877F2; letter-spacing:1px;">敏姐粉專</div>
+  <!-- FB 官方 Like iframe -->
+  <iframe
+    src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Ffantasichouse&width=90&layout=box_count&action=like&size=large&share=false&height=65"
+    width="90" height="65"
+    style="border:none;overflow:hidden;display:block;"
+    scrolling="no" frameborder="0" allowfullscreen="true"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>
+  <!-- FB 官方 Follow iframe -->
+  <iframe
+    src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Ffantasichouse&width=90&layout=box_count&size=large&height=65"
+    width="90" height="65"
+    style="border:none;overflow:hidden;display:block;"
+    scrolling="no" frameborder="0" allowfullscreen="true"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>
 </div>
 
 <script>
