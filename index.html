@@ -361,31 +361,39 @@
   <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
 </nav>
 
-<!-- 浮動按讚追蹤面板 -->
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0">
+</script>
+
+<!-- 浮動 FB 按讚追蹤面板 -->
 <div id="socialFloat" style="
-  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
-  z-index: 999; display: flex; flex-direction: column; gap: 0;
-  border-radius: 12px 0 0 12px; overflow: hidden;
-  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+  position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+  z-index: 999;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 16px 14px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  min-width: 100px;
 ">
-  <button id="likeBtn" onclick="toggleLike()" style="
-    display: flex; flex-direction: column; align-items: center; gap: 3px;
-    background: #fff; border: none; border-bottom: 1px solid #f0e0e0;
-    padding: 14px 16px; cursor: pointer; font-family: inherit;
-    transition: background .2s; min-width: 72px;
-  ">
-    <span id="likeIcon" style="font-size: 1.5rem;">👍</span>
-    <span id="likeLabel" style="font-size: 0.72rem; font-weight: 700; color: #b91c1c;">按讚</span>
-    <span id="likeCount" style="font-size: 0.85rem; font-weight: 900; color: #b91c1c;">386</span>
-  </button>
-  <a id="followBtn" href="https://www.facebook.com/fantasichouse" target="_blank" rel="noopener noreferrer" onclick="handleFollow()" style="
-    display: flex; flex-direction: column; align-items: center; gap: 3px;
-    background: #1877F2; padding: 14px 16px; cursor: pointer;
-    text-decoration: none; transition: background .2s;
-  ">
-    <span id="followIcon" style="font-size: 1.3rem; color:#fff;">＋</span>
-    <span id="followText" style="font-size: 0.72rem; font-weight: 700; color: #fff; text-align:center; line-height:1.3;">追蹤<br>最新消息</span>
-  </a>
+  <div style="font-size:0.72rem; font-weight:800; color:#1877F2; letter-spacing:1px; margin-bottom:2px;">敏姐粉專</div>
+  <!-- FB 官方按讚＋追蹤按鈕 -->
+  <div class="fb-like"
+    data-href="https://www.facebook.com/fantasichouse"
+    data-width=""
+    data-layout="box_count"
+    data-action="like"
+    data-size="large"
+    data-share="false">
+  </div>
+  <!-- 追蹤按鈕 -->
+  <div class="fb-follow"
+    data-href="https://www.facebook.com/fantasichouse"
+    data-layout="box_count"
+    data-size="large">
+  </div>
 </div>
 
 <script>
