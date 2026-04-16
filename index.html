@@ -361,31 +361,31 @@
   <a class="nav-cta" href="https://wa.me/886988146299" target="_blank">💬 WhatsApp 諮詢</a>
 </nav>
 
-<!-- 浮動 FB 按讚追蹤面板 -->
+<!-- 浮動按讚追蹤面板 -->
 <div id="socialFloat" style="
-  position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
-  z-index: 999; background: #fff; border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 14px 10px;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 999; display: flex; flex-direction: column; gap: 0;
+  border-radius: 12px 0 0 12px; overflow: hidden;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
 ">
-  <div style="font-size:0.68rem; font-weight:800; color:#1877F2; letter-spacing:1px;">敏姐粉專</div>
-  <!-- FB 官方 Like iframe -->
-  <iframe
-    src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Ffantasichouse&width=90&layout=box_count&action=like&size=large&share=false&height=65"
-    width="90" height="65"
-    style="border:none;overflow:hidden;display:block;"
-    scrolling="no" frameborder="0" allowfullscreen="true"
-    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-  </iframe>
-  <!-- FB 官方 Follow iframe -->
-  <iframe
-    src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Ffantasichouse&width=90&layout=box_count&size=large&height=65"
-    width="90" height="65"
-    style="border:none;overflow:hidden;display:block;"
-    scrolling="no" frameborder="0" allowfullscreen="true"
-    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-  </iframe>
+  <button id="likeBtn" onclick="toggleLike()" style="
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: #fff; border: none; border-bottom: 1px solid #f0e0e0;
+    padding: 14px 16px; cursor: pointer; font-family: inherit;
+    transition: background .2s; min-width: 72px;
+  ">
+    <span id="likeIcon" style="font-size: 1.5rem;">👍</span>
+    <span id="likeLabel" style="font-size: 0.72rem; font-weight: 700; color: #b91c1c;">按讚</span>
+    <span id="likeCount" style="font-size: 0.85rem; font-weight: 900; color: #b91c1c;">386</span>
+  </button>
+  <a id="followBtn" href="https://www.facebook.com/fantasichouse" target="_blank" rel="noopener noreferrer" onclick="handleFollow()" style="
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: #1877F2; padding: 14px 16px; cursor: pointer;
+    text-decoration: none; transition: background .2s;
+  ">
+    <span id="followIcon" style="font-size: 1.3rem; color:#fff;">＋</span>
+    <span id="followText" style="font-size: 0.72rem; font-weight: 700; color: #fff; text-align:center; line-height:1.3;">追蹤<br>最新消息</span>
+  </a>
 </div>
 
 <script>
