@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://amin-realty.github.io/sitemap.xml
+Sitemap: https://minjie-realty.com/sitemap.xml
